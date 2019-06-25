@@ -3,3 +3,4 @@
 !certs/localhost/
 !localhost.conf
 !localhost_https.conf
+!laravel.conf.sample
