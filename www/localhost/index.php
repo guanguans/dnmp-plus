@@ -1,6 +1,6 @@
 <?php
 
-echo '<h1 style="text-align: center;">欢迎使用DNMP！</h1>';
+echo '<h1 style="text-align: center;">欢迎使用DNMP-PLUS！</h1>';
 echo '<h2>版本信息</h2>';
 
 echo '<ul>';
@@ -21,17 +21,17 @@ function getMysqlVersion()
 {
     if (extension_loaded('PDO_MYSQL')) {
         try {
-            $dbh = new PDO('mysql:host=mysql;dbname=mysql', 'root', '123456');
-            $sth = $dbh->query('SELECT VERSION() as version');
+            $dbh  = new PDO('mysql:host=mysql;dbname=mysql', 'root', '123456');
+            $sth  = $dbh->query('SELECT VERSION() as version');
             $info = $sth->fetch();
         } catch (PDOException $e) {
             return $e->getMessage();
         }
+
         return $info['version'];
-    } else {
-        return 'PDO_MYSQL 扩展未安装 ×';
     }
 
+    return 'PDO_MYSQL 扩展未安装 ×';
 }
 
 /**
@@ -44,13 +44,14 @@ function getRedisVersion()
             $redis = new Redis();
             $redis->connect('redis', 6379);
             $info = $redis->info();
+
             return $info['redis_version'];
         } catch (Exception $e) {
             return $e->getMessage();
         }
-    } else {
-        return 'Redis 扩展未安装 ×';
     }
+
+    return 'Redis 扩展未安装 ×';
 }
 
 /**
@@ -60,8 +61,16 @@ function printExtensions()
 {
     echo '<ol>';
     foreach (get_loaded_extensions() as $i => $name) {
-        echo "<li>", $name, '=', phpversion($name), '</li>';
+        if ($name === 'mongodb'
+            || $name === 'mongo'
+            || $name === 'tideways_xhprof'
+            || $name === 'tideways'
+            || $name === 'xhprof'
+        ) {
+            echo "<li style='color: #FF9632;'>", $name, '=', phpversion($name), '</li>';
+        } else {
+            echo "<li>", $name, '=', phpversion($name), '</li>';
+        }
     }
     echo '</ol>';
 }
-
