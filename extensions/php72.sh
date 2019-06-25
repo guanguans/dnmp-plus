@@ -81,3 +81,11 @@ if [ -z "${EXTENSIONS##*,mongodb,*}" ]; then
     printf "\n" | pecl install mongodb
     docker-php-ext-enable mongodb
 fi
+
+if [ -z "${EXTENSIONS##*,tideways,*}" ]; then
+    echo "---------- Install tideways ----------"
+    mkdir tideways \
+    && tar -xf tideways-4.1.7.tar.gz -C tideways --strip-components=1 \
+    && ( cd tideways && phpize && ./configure && make ${MC} && make install ) \
+    && docker-php-ext-enable tideways
+fi
