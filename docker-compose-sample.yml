@@ -97,5 +97,15 @@ services:
       - REDIS_1_HOST=redis
       - REDIS_1_PORT=6379
 
+  mongo:
+    image: mongo:${MONGO_VERSION}
+    ports:
+      - "${MONGO_HOST_PORT}:27017"
+    volumes:
+      - ${MONGO_DATA_DIR}:/var/lib/mongo/:rw
+    restart: always
+    networks:
+      - default
+
 networks:
   default:
