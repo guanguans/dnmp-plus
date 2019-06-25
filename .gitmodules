@@ -1,0 +1,3 @@
+[submodule "www/xhgui-branch"]
+	path = www/xhgui-branch
+	url = https://github.com/laynefyc/xhgui-branch.git
