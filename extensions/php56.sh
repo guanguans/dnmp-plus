@@ -81,3 +81,10 @@ if [ -z "${EXTENSIONS##*,mongodb,*}" ]; then
     printf "\n" | pecl install mongodb
     docker-php-ext-enable mongodb
 fi
+
+if [ -z "${EXTENSIONS##*,xhprof,*}" ]; then
+    echo "---------- Install xhprof ----------"
+	apk add --no-cache unixodbc-dev
+    printf "\n" | pecl install channel://pecl.php.net/xhprof-0.9.4
+    docker-php-ext-enable xhprof
+fi
