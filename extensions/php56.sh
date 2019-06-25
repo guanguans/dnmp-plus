@@ -74,3 +74,10 @@ if [ -z "${EXTENSIONS##*,sqlsrv,*}" ]; then
     echo "---------- Install sqlsrv ----------"
 	echo "pdo_sqlsrv requires PHP >= 7.1.0, installed version is ${PHP_VERSION}"
 fi
+
+if [ -z "${EXTENSIONS##*,mongodb,*}" ]; then
+    echo "---------- Install mongodb ----------"
+	apk add --no-cache unixodbc-dev
+    printf "\n" | pecl install mongodb
+    docker-php-ext-enable mongodb
+fi

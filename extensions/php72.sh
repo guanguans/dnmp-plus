@@ -74,3 +74,10 @@ if [ -z "${EXTENSIONS##*,sqlsrv,*}" ]; then
     printf "\n" | pecl install sqlsrv
     docker-php-ext-enable sqlsrv
 fi
+
+if [ -z "${EXTENSIONS##*,mongodb,*}" ]; then
+    echo "---------- Install mongodb ----------"
+	apk add --no-cache unixodbc-dev
+    printf "\n" | pecl install mongodb
+    docker-php-ext-enable mongodb
+fi
