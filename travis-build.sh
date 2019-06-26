@@ -11,7 +11,7 @@ env | sort
 
 #### Build the Docker Images
 
-cp env-example .env
+cp env-sample .env
 cat .env
 cp docker-compose-sample.yml docker-compose.yml
 docker-compose up -d
