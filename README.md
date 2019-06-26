@@ -125,9 +125,9 @@ return array(
 
 ### 浏览器访问 http://xhgui.test
 
-![](docs/xhgui.png)
+![](docs/xhgui1.png)
 
-### 在要分析项目 nginx 配置文件中增加
+### 在要分析项目 nginx 配置文件中修改，以默认的 localhost 配置 `conf/conf.d/localhost.conf` 为例
 
 ``` conf
 ...
@@ -143,9 +143,11 @@ location ~ \.php$ {
 ...
 ``` 
 
-### 重启 nginx，浏览器访问要分析的项目的地址，再访问 http://xhgui.test，此时发现首页已经有了内容
+### `docker-compose restart nginx` 重启 nginx，浏览器访问 http://localhost，再访问 http://xhgui.test，此时已经有了内容
 
-![](docs/xhgui-content.png)
+![](docs/xhgui2.png)
+
+![](docs/xhgui3.png)
 
 ## PHP 和扩展
 
