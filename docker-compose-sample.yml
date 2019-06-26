@@ -102,10 +102,16 @@ services:
     ports:
       - "${MONGO_HOST_PORT}:27017"
     volumes:
-      - ${MONGO_DATA_DIR}:/data/db:rw
+      - ${MONGO_DATA_DB_DIR}:/data/db:rw
     restart: always
     networks:
       - default
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "${MONGO_EXPRESS_HOST_PORT}:8081"
 
 networks:
   default:
