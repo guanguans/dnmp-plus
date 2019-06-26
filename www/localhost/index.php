@@ -1,5 +1,8 @@
 <?php
 
+use MongoDB\Driver\Command;
+use MongoDB\Driver\Manager;
+
 echo '<h1 style="text-align: center;">欢迎使用DNMP-PLUS！</h1>';
 echo '<h2>版本信息</h2>';
 
@@ -20,39 +23,39 @@ printExtensions();
  */
 function getMysqlVersion()
 {
-    if (extension_loaded('PDO_MYSQL')) {
-        try {
-            $dbh  = new PDO('mysql:host=mysql;dbname=mysql', 'root', '123456');
-            $sth  = $dbh->query('SELECT VERSION() as version');
-            $info = $sth->fetch();
-        } catch (PDOException $e) {
-            return $e->getMessage();
-        }
-
-        return $info['version'];
+    if (!extension_loaded('PDO_MYSQL')) {
+        return 'PDO_MYSQL 扩展未安装 ×';
     }
 
-    return 'PDO_MYSQL 扩展未安装 ×';
+    try {
+        $dbh  = new PDO('mysql:host=mysql;dbname=mysql', 'root', '123456');
+        $sth  = $dbh->query('SELECT VERSION() as version');
+        $info = $sth->fetch();
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
+
+    return $info['version'];
 }
 
 /**
- * 获取MySQL版本
+ * 获取MongoDB版本
  */
 function getMongoDBVersion()
 {
-    if (extension_loaded('mongodb')) {
-        try {
-            $dbh  = new PDO('mysql:host=mysql;dbname=mysql', 'root', '123456');
-            $sth  = $dbh->query('SELECT VERSION() as version');
-            $info = $sth->fetch();
-        } catch (PDOException $e) {
-            return $e->getMessage();
-        }
-
-        return $info['version'];
+    if (!extension_loaded('mongodb')) {
+        return 'Mongodb 扩展未安装 ×';
     }
 
-    return 'Mongodb 扩展未安装 ×';
+    try {
+        $manager = new MongoDB\Driver\Manager('mongodb://mongo:27017');
+        $command = new MongoDB\Driver\Command(['buildinfo' => true]);
+        $cursor  = $manager->executeCommand('admin', $command)->toArray();
+
+        return $cursor[0]->version;
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
 }
 
 /**
@@ -60,19 +63,19 @@ function getMongoDBVersion()
  */
 function getRedisVersion()
 {
-    if (extension_loaded('redis')) {
-        try {
-            $redis = new Redis();
-            $redis->connect('redis', 6379);
-            $info = $redis->info();
-
-            return $info['redis_version'];
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
+    if (!extension_loaded('redis')) {
+        return 'Redis 扩展未安装 ×';
     }
 
-    return 'Redis 扩展未安装 ×';
+    try {
+        $redis = new Redis();
+        $redis->connect('redis', 6379);
+        $info = $redis->info();
+
+        return $info['redis_version'];
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
 }
 
 /**
@@ -80,8 +83,9 @@ function getRedisVersion()
  */
 function printExtensions()
 {
+    $getLoadedExtensions = get_loaded_extensions();
     echo '<ol>';
-    foreach (get_loaded_extensions() as $name) {
+    foreach ($getLoadedExtensions as $name) {
         if ($name === 'mongodb'
             || $name === 'mongo'
             || $name === 'tideways_xhprof'
