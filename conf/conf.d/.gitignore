@@ -1,7 +1,7 @@
-*
 !.gitignore
 !certs/localhost/
 !localhost_php72.conf
 !localhost_https_php56.conf
 !laravel.conf.sample
+laravel.conf
 !xhgui.conf
