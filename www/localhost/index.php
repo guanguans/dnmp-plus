@@ -81,7 +81,7 @@ function getRedisVersion()
 function printExtensions()
 {
     echo '<ol>';
-    foreach (get_loaded_extensions() as $i => $name) {
+    foreach (get_loaded_extensions() as $name) {
         if ($name === 'mongodb'
             || $name === 'mongo'
             || $name === 'tideways_xhprof'
