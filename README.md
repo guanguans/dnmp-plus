@@ -52,7 +52,7 @@ $ cp docker-compose-sample.yml docker-compose.yml
 $ docker-compose up -d
 ```
 
-默认 web 跟目录 `www/localhost/`，浏览器访问 [http://localhost](http://localhost)
+默认 web 根目录 `www/localhost/`，浏览器访问 [http://localhost](http://localhost)
 
 ![](docs/localhost.png)
 
