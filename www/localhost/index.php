@@ -8,6 +8,7 @@ echo '<li>PHP版本：', PHP_VERSION, '</li>';
 echo '<li>Nginx版本：', $_SERVER['SERVER_SOFTWARE'], '</li>';
 echo '<li>MySQL服务器版本：', getMysqlVersion(), '</li>';
 echo '<li>Redis服务器版本：', getRedisVersion(), '</li>';
+echo '<li style="color: #FF9632;">MongoDB服务器版本：', getMongoDBVersion(), '</li>';
 echo '</ul>';
 
 echo '<h2>已安装扩展</h2>';
@@ -32,6 +33,26 @@ function getMysqlVersion()
     }
 
     return 'PDO_MYSQL 扩展未安装 ×';
+}
+
+/**
+ * 获取MySQL版本
+ */
+function getMongoDBVersion()
+{
+    if (extension_loaded('mongodb')) {
+        try {
+            $dbh  = new PDO('mysql:host=mysql;dbname=mysql', 'root', '123456');
+            $sth  = $dbh->query('SELECT VERSION() as version');
+            $info = $sth->fetch();
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+
+        return $info['version'];
+    }
+
+    return 'Mongodb 扩展未安装 ×';
 }
 
 /**
