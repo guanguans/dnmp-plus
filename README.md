@@ -1,6 +1,6 @@
 <h1 align="center">DNMP PLUS</h1>
 
-<p align="center">Docker+Nginx+MySQL+PHP(xhprof、tideways)+ Redis+MongDB+xhgui，可能是 PHPer 最好用的开发环境</p>
+<p align="center">Docker+Nginx+MySQL+PHP(xhprof、tideways)+ Redis+MongDB+xhgui，PHPer 的一键安装式终极 debug 开发环境。</p>
 
 [![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
 
@@ -90,6 +90,62 @@ $ docker-compose rm 服务1 服务2 ...
 # 停止并删除容器，网络，图像和挂载卷
 $ docker-compose down 服务1 服务2 ...
 ```
+
+## xhgui 使用，更多详细使用可以参考：https://github.com/guanguans/guanguans.github.io/issues/8
+
+### 安装
+
+``` bash
+$ cd www/xhgui-branch
+$ composer install
+```
+
+### 修改 hgui-branch 配置文件 `www/xhgui-branch/config/config.default.php`
+
+``` php
+<?php
+return array(
+    ...
+    'debug'        => true, // 改为true，便于调试
+    'mode'         => 'development',
+    ...
+    'extension'    => 'tideways', // 改为支持 PHP7 的 tideways
+    ...
+    'save.handler' => 'mongodb',
+    'db.host'      => 'mongodb://mongo:27017', // 127.0.0.1 改为 mongo
+    ...
+);
+```
+
+### hosts 文件中增加
+
+``` bash
+127.0.0.1             xhgui.test
+```
+
+### 浏览器访问 http://xhgui.test
+
+![](docs/xhgui.png)
+
+### 在要分析项目 nginx 配置文件中增加
+
+``` conf
+...
+location ~ \.php$ {
+    fastcgi_pass   php72:9000;
+    fastcgi_index  index.php;
+    include        fastcgi_params;
+    fastcgi_param  PATH_INFO $fastcgi_path_info;
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    # 在执行主程序之前运行我们指定的PHP脚本
+    fastcgi_param  PHP_VALUE "auto_prepend_file=/var/www/html/xhgui-branch/external/header.php"; 
+}
+...
+``` 
+
+### 重启 nginx，浏览器访问要分析的项目的地址，再访问 http://xhgui.test，此时发现首页已经有了内容
+
+![](docs/xhgui-content.png)
 
 ## PHP 和扩展
 
