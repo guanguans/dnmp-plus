@@ -1,8 +1,5 @@
 <?php
 
-use MongoDB\Driver\Command;
-use MongoDB\Driver\Manager;
-
 echo '<h1 style="text-align: center;">欢迎使用DNMP-PLUS！</h1>';
 echo '<h2>版本信息</h2>';
 
