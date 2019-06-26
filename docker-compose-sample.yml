@@ -102,7 +102,7 @@ services:
     ports:
       - "${MONGO_HOST_PORT}:27017"
     volumes:
-      - ${MONGO_DATA_DIR}:/var/lib/mongo/:rw
+      - ${MONGO_DATA_DIR}:/data/db:rw
     restart: always
     networks:
       - default
