@@ -1,6 +1,6 @@
 <h1 align="center">DNMP PLUS</h1>
 
-<p align="center">Docker+Nginx+MySQL+PHP(xhprof、tideways)+ Redis+MongDB+xhgui，PHPer 的一键安装式终极 debug 开发环境。</p>
+<p align="center">dnmp-plus = Docker+Nginx+MySQL+PHP(xhprof、tideways)+ Redis+MongDB+xhgui，PHPer 的一键安装式终极 debug 开发环境。</p>
 
 [![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
 
@@ -100,7 +100,7 @@ $ cd www/xhgui-branch
 $ composer install
 ```
 
-### 修改 hgui-branch 配置文件 `www/xhgui-branch/config/config.default.php`
+### 修改 xhgui-branch 配置文件 `www/xhgui-branch/config/config.default.php`
 
 ``` php
 <?php
@@ -143,7 +143,13 @@ location ~ \.php$ {
 ...
 ``` 
 
-### `docker-compose restart nginx` 重启 nginx，浏览器访问 http://localhost，再访问 http://xhgui.test，此时已经有了内容
+### 重启 nginx
+
+``` bash
+$ docker-compose restart nginx
+```
+
+### 浏览器访问 [http://localhost](http://localhost)，再访问 [http://xhgui.test](http://xhgui.test)，此时已经有了内容，愉快的查看项目的性能追踪及分析吧
 
 ![](docs/xhgui2.png)
 
