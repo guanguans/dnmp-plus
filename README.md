@@ -91,7 +91,7 @@ $ docker-compose rm 服务1 服务2 ...
 $ docker-compose down 服务1 服务2 ...
 ```
 
-## xhgui 使用，更多详细使用可以参考：https://github.com/guanguans/guanguans.github.io/issues/8
+## xhgui 使用，可以参考 [dnmp-plus 详细安装与使用](https://github.com/guanguans/guanguans.github.io/issues/9）
 
 ### 安装
 
