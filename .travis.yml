@@ -14,7 +14,7 @@ before_install:
 script: ./travis-build.sh
 
 after_failure:
-  - curl "https://api.day.app/${API_DAY_TOKEN}/dnmp-plus 构建失败"
+  - curl "https://api.day.app/${API_DAY_TOKEN}/dnmp-plus 构建失败 https://travis-ci.org/guanguans/dnmp-plus/builds"
 
 after_success:
   - curl "https://api.day.app/${API_DAY_TOKEN}/dnmp-plus 构建成功"
