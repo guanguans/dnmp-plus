@@ -1,4 +1,4 @@
-<h1 align="center">DNMP PLUS</h1>
+<h1 align="center">DNMP PLUS <img alt="Build Status" src="https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master"></h1>
 
 <p align="center">dnmp = Docker+Nginx+MySQL+PHP</p>
 
@@ -23,8 +23,6 @@
 * MongoDB 服务
 * Mongo Express - MongoDB 服务管理系统
 * [xhgui](https://github.com/perftools/xhgui) - xhprof 分析数据数据的 GUI 系统
-
-[![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
 
 ![](docs/dnmp-plus.png)
 
@@ -66,7 +64,8 @@ $ git clone https://github.com/guanguans/dnmp-plus.git --recursive
 $ cd dnmp-plus
 $ cp env.sample .env
 $ cp docker-compose-sample.yml docker-compose.yml
-$ docker-compose up -d
+# 服务选项：nginx、php72、php56、mysql、mongo、redis、phpmyadmin、phpredisadmin、mongo-express
+$ docker-compose up -d php72 nginx mysql mongo
 ```
 
 OK，你现在已经拥有了一个 dnmp-plus 开发环境，默认 web 根目录 `www/localhost/`，浏览器访问 [http://localhost](http://localhost)

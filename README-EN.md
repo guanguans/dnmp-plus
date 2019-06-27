@@ -1,4 +1,4 @@
-<h1 align="center">DNMP PLUS</h1>
+<h1 align="center">DNMP PLUS <img alt="Build Status" src="https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master"></h1>
 
 <p align="center">dnmp = Docker+Nginx+MySQL+PHP</p>
 
@@ -21,8 +21,6 @@
 * MongoDB service
 * Mongo Express - MongoDB Service Management System
 * [Xhgui](https://github.com/perftools/xhgui) - xhprof GUI system for analyzing data data
-
-[![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
 
 ![](docs/dnmp-plus.png)
 
@@ -64,7 +62,8 @@ $ git clone https://github.com/guanguans/dnmp-plus.git --recursive
 $ cd dnmp-plus
 $ cp env.sample .env
 $ cp docker-compose-sample.yml docker-compose.yml
-$ docker-compose up -d
+# Service option：nginx、php72、php56、mysql、mongo、redis、phpmyadmin、phpredisadmin、mongo-express
+$ docker-compose up -d php72 nginx mysql mongo
 ```
 
 OK, you now have a dnmp-plus development environment, the default web root directory `www/localhost/`, the browser accesses http://localhost
