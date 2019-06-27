@@ -4,25 +4,23 @@
 
 <p align="center">plus = xhprof+tideways+xhgui+Redis+MongDB</p>
 
-<p align="center">dnmp-plus = PHPer 的一键安装式终极 debug 开发环境</p>
+<p align="center">dnmp-plus = PHPer's one-click installation ultimate debug development environment</p>
 
 ---
 
 <p align="center">
-    <a>简体中文</a> |
-    <a href="README-EN.md">English</a>
+    <a>English</a> |
+    <a href="README.md">简体中文</a>
 </p>
 
-> 之前在用 laradock 做本地开发环境，因为 laradock 没有 [xhgui](https://github.com/perftools/xhgui)、[xhprof](https://github.com/phacility/xhprof)、[tideways](https://github.com/tideways/php-xhprof-extension) 这些对 PHP 程序性能追踪及分析的工具，所以索性基于 [yeszao](https://github.com/yeszao) 的 [dnmp](https://github.com/yeszao/dnmp) 编排了一套自己使用。
+**[dnmp-plus](https://github.com/guanguans/dnmp-plus)** is added on the basis of dnmp:
 
-**[dnmp-plus](https://github.com/guanguans/dnmp-plus)** 在 dnmp 基础上新增：
-
-* [PHP xhprof 扩展](https://github.com/phacility/xhprof) - Facebook 开发的 PHP 性能追踪及分析工具
-* [PHP tideways 扩展](https://github.com/tideways/php-xhprof-extension) - xhprof 的分支，支持 PHP7
-* PHP mongodb 扩展
-* MongoDB 服务
-* Mongo Express - MongoDB 服务管理系统
-* [xhgui](https://github.com/perftools/xhgui) - xhprof 分析数据数据的 GUI 系统
+* [PHP xhprof extension](https://github.com/phacility/xhprof) - PHP performance tracking and analysis tool developed by Facebook
+* [PHP tideways extension](https://github.com/tideways/php-xhprof-extension) - branch of xhprof with support for PHP7
+* PHP mongodb extension
+* MongoDB service
+* Mongo Express - MongoDB Service Management System
+* [Xhgui](https://github.com/perftools/xhgui) - xhprof GUI system for analyzing data data
 
 [![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
 
@@ -30,7 +28,7 @@
 
 ---
 
-## 目录结构
+## Directory Structure
 
 ``` bash
 ├── .github                     Github 配置目录
@@ -53,13 +51,13 @@
 └── travis-build.sh             Travis CI 构建脚本
 ```
 
-## 环境要求
+## Environmental requirements
 
 * Docker
 * Docker-compose
 * Git
 
-## 快速使用
+## Quick use
 
 ``` bash
 $ git clone https://github.com/guanguans/dnmp-plus.git --recursive
@@ -69,11 +67,11 @@ $ cp docker-compose-sample.yml docker-compose.yml
 $ docker-compose up -d
 ```
 
-OK，你现在已经拥有了一个 dnmp-plus 开发环境，默认 web 根目录 `www/localhost/`，浏览器访问 [http://localhost](http://localhost)
+OK, you now have a dnmp-plus development environment, the default web root directory `www/localhost/`, the browser accesses http://localhost
 
 ![](docs/localhost.png)
 
-## 基本使用
+## Basic use
 
 ``` bash
 # 服务选项：nginx、php72、php56、mysql、mongo、redis、phpmyadmin、phpredisadmin、mongo-express
@@ -108,43 +106,44 @@ $ docker-compose rm 服务1 服务2 ...
 $ docker-compose down 服务1 服务2 ...
 ```
 
-## xhgui 使用，可以参考  https://github.com/guanguans/guanguans.github.io/issues/9
+## For xhgui use, you can refer to https://github.com/guanguans/guanguans.github.io/issues/9
+installation
 
-### 安装
+### Installation
 
 ``` bash
 $ cd www/xhgui-branch
 $ composer install
 ```
 
-### 修改 xhgui-branch 配置文件 `www/xhgui-branch/config/config.default.php`
+### Modify the xhgui-branch configuration file `www/xhgui-branch/config/config.default.php`
 
 ``` php
 <?php
 return array(
     ...
-    'debug'        => true, // 改为true，便于调试
+    'debug'        => true, // changed to true for easy debugging
     'mode'         => 'development',
     ...
-    'extension'    => 'tideways', // 改为支持 PHP7 的 tideways
+    'extension'    => 'tideways', // changed to support tideways for PHP7
     ...
     'save.handler' => 'mongodb',
-    'db.host'      => 'mongodb://mongo:27017', // 127.0.0.1 改为 mongo
+    'db.host'      => 'mongodb://mongo:27017', // 127.0.0.1 changed to mongo
     ...
 );
 ```
 
-### hosts 文件中增加
+### Added in the hosts file
 
 ``` bash
 127.0.0.1             xhgui.test
 ```
 
-### 浏览器访问 http://xhgui.test
+### Browser access http://xhgui.test
 
 ![](docs/xhgui1.png)
 
-### 在要分析项目 nginx 配置文件中修改，以默认的 localhost 配置 `conf/conf.d/localhost.conf` 为例
+### Modify in the nginx configuration file to analyze the project, with the default localhost configuration `conf/conf.d/localhost.conf` as an example
 
 ``` conf
 ...
@@ -160,89 +159,86 @@ location ~ \.php$ {
 ...
 ``` 
 
-### 重启 nginx
+### Restart nginx
 
 ``` bash
 $ docker-compose restart nginx
 ```
 
-### 浏览器访问 [http://localhost](http://localhost)，再访问 [http://xhgui.test](http://xhgui.test)，此时已经有了内容，愉快的查看项目的性能追踪及分析吧
+### The browser visits http://localhost](http://localhost) and then visits [http://xhgui.test](http://xhgui.test). Now that you have the content, you can enjoy the performance tracking and analysis of the project
 
 ![](docs/xhgui2.png)
 
 ![](docs/xhgui3.png)
 
-## PHP 和扩展
+## PHP and extensions
 
-### 切换 Nginx 使用的 PHP 版本
+### Switch the PHP version used by Nginx
 
-默认同时创建 `PHP5.6` 和 `PHP7.2` 2 个 PHP 版本的容器，切换 PHP 仅需修改相应站点 Nginx 配置的 `fastcgi_pass` 选项，例如，示例的 [http://localhost](http://localhost) 用的是 PHP7.2，Nginx 配置：
+By default, both PHP5.6 and PHP7.2 2 PHP versions of the container are created. Switching PHP only needs to modify the `fastcgi_pass` option of the corresponding site Nginx configuration. For example, the example [http://localhost](http://localhost) uses PHP7.2, Nginx configuration:
 
 ``` conf
 fastcgi_pass   php72:9000;
 ```
 
-要改用 PHP5.6，修改为：
+To use PHP 5.6 instead, change it to:
 
 ``` conf
 fastcgi_pass   php56:9000;
 ```
 
-重启 Nginx 生效
+Restart Nginx to take effect
 
 ``` bash
 $ docker-compose restart nginx
 ```
 
-### 安装 PHP 扩展
+### Install PHP extensions
 
-PHP 的很多功能都是通过扩展实现，而安装扩展是一个略费时间的过程，
-所以，除 PHP 内置扩展外，在 `env.sample` 文件中我们仅默认安装少量扩展，
-如果要安装更多扩展，请打开你的 `.env` 文件修改如下的 PHP 配置，
-增加需要的 PHP 扩展：
+Many of PHP's features are implemented through extensions, and installing extensions is a slightly time-consuming process, so in addition to the PHP built-in extensions, we only install a few extensions by default in the `env.sample` file. If you want to install more extensions, please Open your `.env` file and modify the PHP configuration as follows to add the required PHP extensions:
 
 ``` bash
 PHP72_EXTENSIONS=pdo_mysql,opcache,redis,xdebug,mongodb,tideways
 PHP56_EXTENSIONS=opcache,redis,xdebug,mongodb,xhprof
 ```
 
-然后重新构建 PHP 镜像
+Then rebuild the PHP image
 
 ``` bash
 docker-compose build php72
 docker-compose up -d
 ```
 
-## 使用 Log
+## Use Log
 
-Log 文件生成的位置依赖于 conf 下各 log 配置的值。
+The location where the Log file is generated depends on the value of each log configuration under conf.
 
-### Nginx 日志
+### Nginx Log
 
-Nginx 日志是我们用得最多的日志，所以我们单独放在根目录 `log` 下。`log` 会目录映射 Nginx 容器的 `/var/log/nginx` 目录，所以在 Nginx 配置文件中，需要输出 log 的位置，我们需要配置到 `/var/log/nginx` 目录，如：
+The Nginx log is the one we use the most, so we put it under the root directory `log`. The `log` directory maps the /var/log/nginx directory of the Nginx container, so in the Nginx configuration file, you need to output the location of the log. We need to configure it to the `/var/log/nginx` directory, such as:
 
 ``` conf
 error_log  /var/log/nginx/nginx.localhost.error.log  warn;
 ```
 
-### MySQL 日志
+### MySQL log
 
-因为 MySQL 容器中的 MySQL 使用的是 `mysql` 用户启动，它无法自行在 `/var/log` 下的增加日志文件。所以，我们把 MySQL 的日志放在与 data 一样的目录，即项目的`mysql`目录下，对应容器中的 `/var/lib/mysql/` 目录。
+Because MySQL in the MySQL container uses the `mysql` user to start, it cannot add log files by itself under `/var/log`. So, we put the MySQL log in the same directory as data, the `mysql` directory of the project, corresponding to the `/var/lib/mysql/` directory in the container.
 
-mysql.conf 中的日志文件的配置：
+Configuration of the log file in mysql.conf:
 
 ``` conf
 slow-query-log-file     = /var/lib/mysql/mysql.slow.log
 log-error               = /var/lib/mysql/mysql.error.log
 ```
 
-## 数据库管理
+## Database management
 
-* 默认 phpMyAdmin 地址：http://localhost:8080
-* 默认 phpRedisAdmin 地址：http://localhost:8081
-* 默认 Mongo Express 地址：http://localhost:8082
+* Default phpMyAdmin address: http://localhost:8080
+* Default phpRedisAdmin address: http://localhost:8081
+* Default Mongo Express address: http://localhost:8082
 
-## 参考链接
+## Reference link
 
 * [https://github.com/yeszao/dnmp](https://github.com/yeszao/dnmp)，yeszao
 
