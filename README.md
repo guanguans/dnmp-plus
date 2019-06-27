@@ -6,13 +6,15 @@
 
 <p align="center">dnmp-plus = PHPer 的一键安装式终极 debug 开发环境</p>
 
+> 之前在用 laradock 做本地开发环境，因为 laradock 没有 [xhgui](https://github.com/perftools/xhgui)、[xhprof](https://github.com/phacility/xhprof)、[tideways](https://github.com/tideways/php-xhprof-extension) 这些对 PHP 程序性能追踪及分析的工具，所以索性基于 [yeszao](https://github.com/yeszao) 的 [dnmp](https://github.com/yeszao/dnmp) 编排了一套自己使用。
+
 ---
 
 [![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
 
 ![](docs/dnmp-plus.png)
 
-DNMP PLUS 基于 [yeszao](https://github.com/yeszao) 的 [DNMP](https://github.com/yeszao/dnmp) 开发，在其基础上新增：
+**[dnmp-plus](https://github.com/guanguans/dnmp-plus)** 在 dnmp 基础上新增：
 
 * [PHP xhprof 扩展](https://github.com/phacility/xhprof) - Facebook 开发的 PHP 性能追踪及分析工具
 * [PHP tideways 扩展](https://github.com/tideways/php-xhprof-extension) - xhprof 的分支，支持 PHP7
