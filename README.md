@@ -1,6 +1,10 @@
 <h1 align="center">DNMP PLUS</h1>
 
-<p align="center">dnmp-plus = Docker+Nginx+MySQL+PHP(xhprof、tideways)+ Redis+MongDB+xhgui，PHPer 的一键安装式终极 debug 开发环境。</p>
+<p align="center">dnmp = Docker+Nginx+MySQL+PHP</p>
+
+<p align="center">plus = xhprof+tideways+xhgui+Redis+MongDB</p>
+
+<p align="center">dnmp-plus = PHPer 的一键安装式终极 debug 开发环境</p>
 
 [![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
 
