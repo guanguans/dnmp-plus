@@ -6,7 +6,11 @@
 
 <p align="center">dnmp-plus = PHPer 的一键安装式终极 debug 开发环境</p>
 
+---
+
 [![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
+
+![](docs/dnmp-plus.png)
 
 DNMP PLUS 基于 [yeszao](https://github.com/yeszao) 的 [DNMP](https://github.com/yeszao/dnmp) 开发，在其基础上新增：
 
