@@ -74,35 +74,34 @@ OK, you now have a dnmp-plus development environment, the default web root direc
 ## Basic use
 
 ``` bash
-# 服务选项：nginx、php72、php56、mysql、mongo、redis、phpmyadmin、phpredisadmin、mongo-express
+# Service option：nginx、php72、php56、mysql、mongo、redis、phpmyadmin、phpredisadmin、mongo-express
 
-# 创建并且启动容器
+# Create and start containers
 $ docker-compose up 服务1 服务2 ...
-# 创建并且启动所有容器
+# Create and start all containers
 $ docker-compose up
-
-# 创建并且已后台运行的方式启动容器
+# Create and start deamon containers 
 $ docker-compose up -d 服务1 服务2 ...
 
-# 启动服务
+# Start services
 $ docker-compose start 服务1 服务2 ...
 
-# 停止服务
+# Stop services
 $ docker-compose stop 服务1 服务2 ...
 
-# 重启服务
+# Restart services
 $ docker-compose restart 服务1 服务2 ...
 
-# 构建或者重新构建服务
+# Build or rebuild services
 $ docker-compose build 服务1 服务2 ...
 
-# 进入命令行容器
+# Execute a command in a running container
 $ docker-compose exec 服务 bash
 
-# 删除并且停止容器
+# Remove stopped containers
 $ docker-compose rm 服务1 服务2 ...
 
-# 停止并删除容器，网络，图像和挂载卷
+# Stop and remove containers, networks, images, and volumes
 $ docker-compose down 服务1 服务2 ...
 ```
 
