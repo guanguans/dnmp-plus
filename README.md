@@ -8,14 +8,14 @@
 
 [![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
 
-DNMP PLUS 项目特点，在 [yeszao](https://github.com/yeszao) 的 [DNMP](https://github.com/yeszao/dnmp) 项目基础上新增：
+DNMP PLUS 基于 [yeszao](https://github.com/yeszao) 的 [DNMP](https://github.com/yeszao/dnmp) 开发，在其基础上新增：
 
 * [PHP xhprof 扩展](https://github.com/phacility/xhprof) - Facebook 开发的 PHP 性能追踪及分析工具
 * [PHP tideways 扩展](https://github.com/tideways/php-xhprof-extension) - xhprof 的分支，支持 PHP7
 * PHP mongodb 扩展
 * MongoDB 服务
 * Mongo Express - MongoDB 服务管理系统
-* [xhgui - XHProf](https://github.com/perftools/xhgui) 分析数据数据的 GUI 系统
+* [xhgui](https://github.com/perftools/xhgui) - xhprof 分析数据数据的 GUI 系统
 
 ## 目录结构
 
@@ -56,15 +56,15 @@ $ cp docker-compose-sample.yml docker-compose.yml
 $ docker-compose up -d
 ```
 
-默认 web 根目录 `www/localhost/`，浏览器访问 [http://localhost](http://localhost)
+OK，你现在已经拥有了一个 dnmp-plus 开发环境，默认 web 根目录 `www/localhost/`，浏览器访问 [http://localhost](http://localhost)
 
 ![](docs/localhost.png)
 
 ## 基本使用
 
-lnmp-plus 自带 nginx、php72、php56、mysql、mongo、redis、phpmyadmin、phpredisadmin、mongo-express 这些镜像服务
-
 ``` bash
+# 服务选项：nginx、php72、php56、mysql、mongo、redis、phpmyadmin、phpredisadmin、mongo-express
+
 # 创建并且启动容器
 $ docker-compose up 服务1 服务2 ...
 # 创建并且启动所有容器
