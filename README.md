@@ -8,12 +8,6 @@
 
 > 之前在用 laradock 做本地开发环境，因为 laradock 没有 [xhgui](https://github.com/perftools/xhgui)、[xhprof](https://github.com/phacility/xhprof)、[tideways](https://github.com/tideways/php-xhprof-extension) 这些对 PHP 程序性能追踪及分析的工具，所以索性基于 [yeszao](https://github.com/yeszao) 的 [dnmp](https://github.com/yeszao/dnmp) 编排了一套自己使用。
 
----
-
-[![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
-
-![](docs/dnmp-plus.png)
-
 **[dnmp-plus](https://github.com/guanguans/dnmp-plus)** 在 dnmp 基础上新增：
 
 * [PHP xhprof 扩展](https://github.com/phacility/xhprof) - Facebook 开发的 PHP 性能追踪及分析工具
@@ -22,6 +16,12 @@
 * MongoDB 服务
 * Mongo Express - MongoDB 服务管理系统
 * [xhgui](https://github.com/perftools/xhgui) - xhprof 分析数据数据的 GUI 系统
+
+[![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
+
+![](docs/dnmp-plus.png)
+
+---
 
 ## 目录结构
 
@@ -43,7 +43,7 @@
 ├── Dockerfile                  PHP 镜像构建文件
 ├── docker-compose-sample.yml   Docker 服务配置示例文件
 ├── env.smaple                  环境配置示例文件
-└── travis-build.sh             Travis CI 构建文件
+└── travis-build.sh             Travis CI 构建脚本
 ```
 
 ## 环境要求
