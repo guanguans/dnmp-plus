@@ -10,7 +10,7 @@
 
 [![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
 
-[简体中文](README.md) | [English
+[简体中文](README.md) | English
 
 **[dnmp-plus](https://github.com/guanguans/dnmp-plus)** is added on the basis of dnmp:
 
