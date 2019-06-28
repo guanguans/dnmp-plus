@@ -12,8 +12,6 @@
 
 简体中文 | [English](README-EN.md)
 
-> 之前在用 laradock 做本地开发环境，因为 laradock 没有 [xhgui](https://github.com/laynefyc/xhgui-branch)、[xhprof](https://github.com/phacility/xhprof)、[tideways](https://github.com/tideways/php-xhprof-extension) 这些对 PHP 程序性能追踪及分析的工具，所以索性基于 [yeszao](https://github.com/yeszao) 的 [dnmp](https://github.com/yeszao/dnmp) 编排了一套自己使用。
-
 **[dnmp-plus](https://github.com/guanguans/dnmp-plus)** 在 dnmp 基础上新增：
 
 * [PHP xhprof 扩展](https://github.com/phacility/xhprof) - Facebook 开发的 PHP 性能追踪及分析工具
