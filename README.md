@@ -1,17 +1,16 @@
-<h1 align="center">DNMP PLUS <img alt="Build Status" src="https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master"></h1>
+# DNMP PLUS
 
-<p align="center">dnmp = Docker+Nginx+MySQL+PHP</p>
+**dnmp** = `Docker` + `Nginx` + `MySQL` + `PHP` + `Redis` + `MongDB`
 
-<p align="center">plus = xhprof+tideways+xhgui+Redis+MongDB</p>
+**plus** = `xhgui` + `xhprof` + `tideways`
 
-<p align="center">dnmp-plus = PHPer 的一键安装式终极 debug 开发环境</p>
+**dnmp-plus** = `PHPer 的一键安装开发环境` + `PHP 非侵入式监控平台（优化系统性能、定位 Bug 的神器）`
 
 ---
 
-<p align="center">
-    <a>简体中文</a> |
-    <a href="README-EN.md">English</a>
-</p>
+[![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
+
+简体中文 | [English](README-EN.md)
 
 > 之前在用 laradock 做本地开发环境，因为 laradock 没有 [xhgui](https://github.com/perftools/xhgui)、[xhprof](https://github.com/phacility/xhprof)、[tideways](https://github.com/tideways/php-xhprof-extension) 这些对 PHP 程序性能追踪及分析的工具，所以索性基于 [yeszao](https://github.com/yeszao) 的 [dnmp](https://github.com/yeszao/dnmp) 编排了一套自己使用。
 

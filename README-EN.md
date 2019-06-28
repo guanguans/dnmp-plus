@@ -1,17 +1,16 @@
-<h1 align="center">DNMP PLUS <img alt="Build Status" src="https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master"></h1>
+# DNMP PLUS
 
-<p align="center">dnmp = Docker+Nginx+MySQL+PHP</p>
+**dnmp** = `Docker` + `Nginx` + `MySQL` + `PHP` + `Redis` + `MongDB`
 
-<p align="center">plus = xhprof+tideways+xhgui+Redis+MongDB</p>
+**plus** = `xhgui` + `xhprof` + `tideways`
 
-<p align="center">dnmp-plus = PHPer's one-click installation ultimate debug development environment</p>
+**dnmp-plus** = `PHPer's one-click installation development environment` + `PHP non-intrusive monitoring platform(optimizing system performance, positioning artifacts of Bug)`
 
 ---
 
-<p align="center">
-    <a>English</a> |
-    <a href="README.md">简体中文</a>
-</p>
+[![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
+
+[简体中文](README.md) | [English
 
 **[dnmp-plus](https://github.com/guanguans/dnmp-plus)** is added on the basis of dnmp:
 
