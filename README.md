@@ -12,7 +12,7 @@
 
 简体中文 | [English](README-EN.md)
 
-**[dnmp-plus](https://github.com/guanguans/dnmp-plus)** 在 dnmp 基础上新增：
+**[dnmp-plus](https://github.com/guanguans/dnmp-plus)** 在 [yeszao](https://github.com/yeszao) 的 [DNMP](https://github.com/yeszao/dnmp) 基础上新增：
 
 * [PHP xhprof 扩展](https://github.com/phacility/xhprof) - Facebook 开发的 PHP 性能追踪及分析工具
 * [PHP tideways 扩展](https://github.com/tideways/php-xhprof-extension) - xhprof 的分支，支持 PHP7
