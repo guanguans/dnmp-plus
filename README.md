@@ -110,6 +110,7 @@ $ docker-compose down 服务1 服务2 ...
 
 ``` bash
 $ cd www/xhgui-branch
+# 注意如果宿主机 php 没有安 mogodb 扩展会报错
 $ composer install
 ```
 
