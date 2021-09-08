@@ -8,7 +8,7 @@
 
 ---
 
-[![Build Status](https://travis-ci.org/guanguans/dnmp-plus.svg?branch=master)](https://travis-ci.org/guanguans/dnmp-plus)
+[![Build Status](https://app.travis-ci.com/guanguans/dnmp-plus.svg?branch=master)](https://app.travis-ci.com/guanguans/dnmp-plus)
 
 [简体中文](README.md) | English
 
